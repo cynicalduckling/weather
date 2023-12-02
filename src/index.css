@@ -1,0 +1,26 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+@layer components {
+    .btn {
+        @apply self-center h-8 px-3 rounded-xl bg-transparent border hover:bg-gray-600;
+    }
+
+    .input-text {
+        @apply rounded-xl h-8 bg-transparent border text-white px-3;
+    }
+
+    .cards {
+        @apply rounded-2xl bg-black shadow-sm shadow-white grow p-5;
+    }
+
+    .padding {
+        @apply px-8 py-8;
+    }
+
+    .sun-icons {
+        @apply h-16 w-16
+    }
+}
