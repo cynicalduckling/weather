@@ -1,7 +1,7 @@
 const Wind = ({ details }) => {
   return (
     <div className="text-white flex cards font-black">
-      <div className="flex flex-col grow gap-4">
+      <div className="flex flex-col grow gap-4 justify-evenly">
         <div className="flex flex-col items-center">
           <div>Visibility</div>
           <div className="font-bold">
@@ -15,7 +15,7 @@ const Wind = ({ details }) => {
           </div>
         </div>
       </div>
-      <div className="flex flex-col grow gap-4">
+      <div className="flex flex-col grow gap-4 justify-evenly">
         <div className="flex flex-col items-center">
           <div>Degree</div>
           <div className="font-bold">

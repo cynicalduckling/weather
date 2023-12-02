@@ -17,7 +17,7 @@
     }
 
     .padding {
-        @apply px-8 py-8;
+        @apply px-8 py-8 md:px-32 max-w-[1600px];
     }
 
     .sun-icons {
