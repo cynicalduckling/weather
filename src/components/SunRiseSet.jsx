@@ -7,9 +7,8 @@ const SunRiseSet = ({ details }) => {
   //   console.log(typeof sunrise.getMinutes());
 
   return (
-    <div className="cards flex justify-evenly min-w-[430px]">
+    <div className="cards flex justify-evenly">
       <div className="flex flex-col p-1 gap-2 items-center grow">
-        {" "}
         <FiSunrise className="sun-icons grow stroke-black dark:stroke-white" />
         <div className="grow flex items-center font-bold">
           {sunrise.getHours() +

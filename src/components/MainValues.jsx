@@ -1,6 +1,6 @@
 const MainValues = ({ details }) => {
   return (
-    <div className="flex cards font-black min-w-[430px]">
+    <div className="flex cards font-black">
       <div className="flex flex-col flex-1 gap-4 justify-evenly">
         <div className="flex flex-col justify-center items-center">
           <div>Pressure</div>
