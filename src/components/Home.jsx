@@ -48,7 +48,7 @@ const Home = () => {
         handleSearch={handleSearch}
         location={location}
       />
-      <div className="flex flex-col md:flex-row gap-8 flex-wrap ">
+      <div className="flex flex-col md:flex-row gap-8 flex-wrap items-center justify-center">
         {Object.keys(weather).length > 0 && (
           <CurrentWeather details={weather.weather} location={searchTerm} />
         )}

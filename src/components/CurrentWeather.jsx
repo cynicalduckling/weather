@@ -1,6 +1,6 @@
 const CurrentWeather = ({ details, location }) => {
   return (
-    <div className="cards flex flex-row">
+    <div className="cards flex flex-row min-w-[430px]">
       <div className="flex flex-col text-3xl items-start justify-between gap-2">
         <div className="text-white font-extrabold">
           {details.weather[0].description.toUpperCase()}
