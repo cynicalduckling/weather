@@ -10,7 +10,7 @@ const SearchBar = ({ setLocation, handleSearch, location }) => {
         className="flex grow gap-4 max-w-[430px]"
       >
         <input
-          className="input-text flex-1 min-w-0 dark:border-white border-black dark:bg-transparent bg-white placeholder-black dark:placeholder-white text-black dark:text-white"
+          className="input-text flex-1 min-w-0 dark:border-white border-black bg-transparent placeholder-black dark:placeholder-white text-black dark:text-white"
           type="text"
           id="location"
           name="location"

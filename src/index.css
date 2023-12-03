@@ -5,7 +5,7 @@
 
 @layer components {
     .btn {
-        @apply self-center h-8 px-3 rounded-xl border dark:border-white border-black dark:bg-transparent bg-white text-black dark:text-white;
+        @apply self-center h-8 px-3 rounded-xl border dark:border-white border-black dark:bg-transparent bg-transparent text-black dark:text-white;
     }
 
     .input-text {
