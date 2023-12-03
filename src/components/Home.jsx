@@ -18,7 +18,6 @@ const Home = () => {
     const coords = await getGeoCode(location);
     const weatherResponse = await currentWeatherCall(coords.data[0]);
     const forecast = await currentWeatherForecast(coords.data[0]);
-    console.log(forecast.data.list[7]);
     setWeather({
       weather: weatherResponse.data,
       forecast: forecast.data.list,
