@@ -17,21 +17,25 @@ const Home = () => {
   const [loading, setLoading] = useState(false);
 
   const getCurrentWeather = async (location) => {
-    setLoading(true);
-    const coords = await getGeoCode(location);
-    if (coords.data.length) {
-      const weatherResponse = await currentWeatherCall(coords.data[0]);
-      const forecast = await currentWeatherForecast(coords.data[0]);
-      setWeather({
-        weather: weatherResponse.data,
-        forecast: forecast.data.list,
-        search: location,
-      });
-      setValid(true);
+    if (location.length) {
+      setLoading(true);
+      const coords = await getGeoCode(location);
+      if (coords.data.length) {
+        const weatherResponse = await currentWeatherCall(coords.data[0]);
+        const forecast = await currentWeatherForecast(coords.data[0]);
+        setWeather({
+          weather: weatherResponse.data,
+          forecast: forecast.data.list,
+          search: location,
+        });
+        setValid(true);
+      } else {
+        setValid(false);
+      }
+      setLoading(false);
     } else {
       setValid(false);
     }
-    setLoading(false);
   };
 
   const hideAlert = () => {
