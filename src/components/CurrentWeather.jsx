@@ -1,12 +1,12 @@
-const CurrentWeather = ({ details, location }) => {
+const CurrentWeather = ({ details, location, loading }) => {
   return (
-    <div className="cards flex flex-row">
+    <div className={`cards flex flex-row ${loading && "loading"}`}>
       <div className="flex flex-col justify-between text-3xl flex-1 items-start gap-2">
         <div className="font-extrabold">
           {details.weather[0].description.toUpperCase()}
         </div>
-        <div className="text-sm flex justify-center items-center font-semibold">
-          {location}
+        <div className="text-sm flex justify-center items-center font-bold">
+          {location.toUpperCase()}
         </div>
         <div className="text-3xl flex justify-center font-extrabold">
           {details.main.temp} &deg;C

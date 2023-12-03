@@ -1,13 +1,11 @@
 import { FiSunrise, FiSunset } from "react-icons/fi";
 
-const SunRiseSet = ({ details }) => {
+const SunRiseSet = ({ details, loading }) => {
   const sunrise = new Date(new Date(parseInt(details.sys.sunrise) * 1000));
   const sunset = new Date(new Date(parseInt(details.sys.sunset) * 1000));
 
-  //   console.log(typeof sunrise.getMinutes());
-
   return (
-    <div className="cards flex justify-evenly">
+    <div className={`cards flex justify-evenly ${loading && "loading"}`}>
       <div className="flex flex-col p-1 gap-2 items-center grow">
         <FiSunrise className="sun-icons grow stroke-black dark:stroke-white" />
         <div className="grow flex items-center font-bold">

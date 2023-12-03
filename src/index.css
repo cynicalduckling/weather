@@ -16,6 +16,14 @@
         @apply rounded-2xl drop-shadow-md grow p-5 shadow-sm shadow-white self-stretch text-black dark:text-white bg-white dark:bg-black min-w-[330px] justify-self-stretch;
     }
 
+    .loading * {
+        @apply animate-spin
+    }
+
+    .loading-search * {
+        @apply animate-ping
+    }
+
     .padding {
         @apply px-8 py-8 md:px-32 max-w-[1600px];
     }

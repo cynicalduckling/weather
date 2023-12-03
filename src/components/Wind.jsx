@@ -1,6 +1,10 @@
-const Wind = ({ details }) => {
+const Wind = ({ details, loading }) => {
   return (
-    <div className="text-black dark:text-white flex cards font-black">
+    <div
+      className={`text-black dark:text-white flex cards font-black ${
+        loading && "loading"
+      }`}
+    >
       <div className="flex flex-col grow gap-4 justify-evenly">
         <div className="flex flex-col items-center">
           <div>Visibility</div>

@@ -2,7 +2,7 @@ import { FaTemperatureHalf } from "react-icons/fa6";
 import { WiHumidity } from "react-icons/wi";
 import { FaWind } from "react-icons/fa6";
 
-const Forecast = ({ details }) => {
+const Forecast = ({ details, loading }) => {
   const forecastIndices = [1, 8, 16, 24, 32, 40];
   const weekdays = {
     0: "Sunday",
@@ -13,10 +13,13 @@ const Forecast = ({ details }) => {
     5: "Friday",
     6: "Saturday",
   };
-  console.log(details[0]);
 
   return (
-    <div className="cards dark:text-white font-black gap-6 md:gap-10 md:justify-center justify-around flex flex-wrap">
+    <div
+      className={`cards dark:text-white font-black gap-6 md:gap-10 md:justify-center justify-around flex flex-wrap ${
+        loading && "loading"
+      }`}
+    >
       {forecastIndices.map((el) => {
         return (
           <div

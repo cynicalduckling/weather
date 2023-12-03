@@ -1,6 +1,6 @@
-const MainValues = ({ details }) => {
+const MainValues = ({ details, loading }) => {
   return (
-    <div className="flex cards font-black">
+    <div className={`flex cards font-black ${loading && "loading"}`}>
       <div className="flex flex-col flex-1 gap-4 justify-evenly">
         <div className="flex flex-col justify-center items-center">
           <div>Pressure</div>
