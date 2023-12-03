@@ -13,7 +13,7 @@
     }
 
     .cards {
-        @apply rounded-2xl bg-black drop-shadow-md grow p-5 shadow-sm shadow-white;
+        @apply rounded-2xl bg-black drop-shadow-md grow p-5 shadow-sm shadow-white h-[175px];
     }
 
     .padding {

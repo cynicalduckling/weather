@@ -1,7 +1,7 @@
 const CurrentWeather = ({ details, location }) => {
   return (
     <div className="cards flex flex-row min-w-[430px]">
-      <div className="flex flex-col text-3xl items-start justify-between gap-2">
+      <div className="flex flex-col justify-between text-3xl flex-1 items-start gap-2">
         <div className="text-white font-extrabold">
           {details.weather[0].description.toUpperCase()}
         </div>
@@ -13,7 +13,7 @@ const CurrentWeather = ({ details, location }) => {
         </div>
       </div>
 
-      <div className="flex flex-col justify-between items-end shrink-0 grow">
+      <div className="flex flex-col justify-between flex-1 items-end">
         <div className="">
           <img
             width={80}
@@ -21,10 +21,10 @@ const CurrentWeather = ({ details, location }) => {
             src={`https://openweathermap.org/img/wn/${details.weather[0].icon}@2x.png`}
           />
         </div>
-        <div className="text-white flex justify-center font-semibold basis-0">
+        <div className="text-white flex justify-center font-semibold">
           Min: {details.main.temp_min} &deg;C
         </div>
-        <div className="text-white flex justify-center font-semibold shrink-0">
+        <div className="text-white flex justify-center font-semibold">
           Max: {details.main.temp_max} &deg;C
         </div>
       </div>

@@ -22,9 +22,9 @@ const Home = () => {
     const forecast = await currentWeatherForecast(coords.data[0]);
     // console.log(forecast.data.list);
     setWeather({
-      ...weather,
       weather: weatherResponse.data,
       forecast: forecast.data.list,
+      search: searchTerm,
     });
   };
 
@@ -48,9 +48,9 @@ const Home = () => {
         handleSearch={handleSearch}
         location={location}
       />
-      <div className="flex flex-col md:flex-row gap-8 flex-wrap items-center justify-center">
+      <div className="flex flex-col md:flex-row gap-8 flex-wrap items-center justify-center ">
         {Object.keys(weather).length > 0 && (
-          <CurrentWeather details={weather.weather} location={searchTerm} />
+          <CurrentWeather details={weather.weather} location={weather.search} />
         )}
         {Object.keys(weather).length > 0 && (
           <MainValues details={weather.weather} />
