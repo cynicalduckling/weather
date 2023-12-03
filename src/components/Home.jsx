@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import SearchBar from "./SearchBar";
 import CurrentWeather from "./CurrentWeather";
 import {
@@ -12,7 +12,7 @@ import Wind from "./Wind";
 import Forecast from "./Forecast";
 
 const Home = () => {
-  const [location, setLocation] = useState("");
+  const [location, setLocation] = useState(null);
 
   const getCurrentWeather = async (location) => {
     const coords = await getGeoCode(location);
@@ -27,10 +27,6 @@ const Home = () => {
 
   const [weather, setWeather] = useState({});
 
-  useEffect(() => {
-    getCurrentWeather("Thrissur");
-  }, []);
-
   const handleSearch = (e) => {
     e.preventDefault();
     getCurrentWeather(location);
@@ -44,21 +40,15 @@ const Home = () => {
         handleSearch={handleSearch}
         location={location}
       />
-      <div className="flex flex-col lg:flex-row gap-8 flex-wrap items-center justify-center max-w-[1600px]">
-        {Object.keys(weather).length > 0 && (
+      {Object.keys(weather).length > 0 && (
+        <div className="flex flex-col lg:flex-row gap-8 flex-wrap items-center justify-center max-w-[1600px]">
           <CurrentWeather details={weather.weather} location={weather.search} />
-        )}
-        {Object.keys(weather).length > 0 && (
           <SunRiseSet details={weather.weather} />
-        )}
-        {Object.keys(weather).length > 0 && (
           <MainValues details={weather.weather} />
-        )}
-        {Object.keys(weather).length > 0 && (
           <Forecast details={weather.forecast} />
-        )}
-        {Object.keys(weather).length > 0 && <Wind details={weather.weather} />}
-      </div>
+          <Wind details={weather.weather} />
+        </div>
+      )}
     </>
   );
 };
