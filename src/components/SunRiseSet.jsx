@@ -26,7 +26,7 @@ const SunRiseSet = ({ details }) => {
             12 +
             ":" +
             (sunset.getMinutes() > 10
-              ? sunset.getMinutes()
+              ? `${sunset.getMinutes()} PM`
               : `0${sunset.getMinutes()} PM`) || "--" + " PM"}
         </div>
       </div>
