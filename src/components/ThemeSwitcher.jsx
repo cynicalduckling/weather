@@ -3,7 +3,7 @@ import { MdDarkMode, MdOutlineLightMode } from "react-icons/md";
 
 const ThemeSwitcher = () => {
   const [theme, setTheme] = useState(
-    localStorage.getItem("theme").length
+    localStorage.getItem("theme")?.length
       ? localStorage.getItem("theme")
       : "dark"
   );
