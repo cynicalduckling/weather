@@ -10,24 +10,24 @@ const SunRiseSet = ({ details }) => {
     <div className="cards flex justify-evenly min-w-[430px]">
       <div className="flex flex-col p-1 gap-2 items-center grow">
         {" "}
-        <FiSunrise color="white" className="sun-icons grow" />
-        <div className="text-white grow flex items-center font-bold">
+        <FiSunrise className="sun-icons grow stroke-black dark:stroke-white" />
+        <div className="grow flex items-center font-bold">
           {sunrise.getHours() +
             ":" +
             (sunrise.getMinutes() > 10
-              ? sunrise.getMinutes()
-              : `0${sunrise.getMinutes()}`) || "--" + " AM"}
+              ? `${sunrise.getMinutes()} AM`
+              : `0${sunrise.getMinutes()} AM`) || "--" + " AM"}
         </div>
       </div>
-      <div className="flex flex-col p-1 gap-2 items-center grow">
-        <FiSunset color="white" className="sun-icons grow" />
-        <div className="text-white grow flex items-center font-bold">
+      <div className="flex flex-col p-1 gap-2 items-center grow ">
+        <FiSunset className="sun-icons grow stroke-black dark:stroke-white" />
+        <div className="grow flex items-center font-bold">
           {sunset.getHours() -
             12 +
             ":" +
             (sunset.getMinutes() > 10
               ? sunset.getMinutes()
-              : `0${sunset.getMinutes()}`) || "--" + " PM"}
+              : `0${sunset.getMinutes()} PM`) || "--" + " PM"}
         </div>
       </div>
     </div>

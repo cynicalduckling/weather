@@ -5,7 +5,7 @@
 
 @layer components {
     .btn {
-        @apply self-center h-8 px-3 rounded-xl bg-transparent border hover:bg-gray-600;
+        @apply self-center h-8 px-3 rounded-xl border dark:border-white border-black dark:bg-transparent bg-white text-black dark:text-white;
     }
 
     .input-text {
@@ -13,7 +13,7 @@
     }
 
     .cards {
-        @apply rounded-2xl bg-black drop-shadow-md grow p-5 shadow-sm shadow-white h-[175px];
+        @apply rounded-2xl drop-shadow-md grow p-5 shadow-sm shadow-white self-stretch text-black dark:text-white bg-white dark:bg-black;
     }
 
     .padding {
@@ -22,5 +22,18 @@
 
     .sun-icons {
         @apply h-16 w-16
+    }
+
+    /* For Webkit-based browsers (Chrome, Safari and Opera) */
+    .scrollbar-hide::-webkit-scrollbar {
+        display: none;
+    }
+
+    /* For IE, Edge and Firefox */
+    .scrollbar-hide {
+        -ms-overflow-style: none;
+        /* IE and Edge */
+        scrollbar-width: none;
+        /* Firefox */
     }
 }

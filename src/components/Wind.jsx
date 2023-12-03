@@ -1,6 +1,6 @@
 const Wind = ({ details }) => {
   return (
-    <div className="text-white flex cards font-black  min-w-[430px]">
+    <div className="text-black dark:text-white flex cards font-black  min-w-[430px]">
       <div className="flex flex-col grow gap-4 justify-evenly">
         <div className="flex flex-col items-center">
           <div>Visibility</div>

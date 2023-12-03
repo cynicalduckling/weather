@@ -9,22 +9,20 @@ import {
 import SunRiseSet from "./SunRiseSet";
 import MainValues from "./MainValues";
 import Wind from "./Wind";
+import Forecast from "./Forecast";
 
 const Home = () => {
-  // console.log("rendering");
-
   const [location, setLocation] = useState("");
-  const [searchTerm, setSearchTerm] = useState("Thrissur");
 
   const getCurrentWeather = async (location) => {
     const coords = await getGeoCode(location);
     const weatherResponse = await currentWeatherCall(coords.data[0]);
     const forecast = await currentWeatherForecast(coords.data[0]);
-    // console.log(forecast.data.list);
+    console.log(forecast.data.list[7]);
     setWeather({
       weather: weatherResponse.data,
       forecast: forecast.data.list,
-      search: searchTerm,
+      search: location,
     });
   };
 
@@ -37,7 +35,6 @@ const Home = () => {
   const handleSearch = (e) => {
     e.preventDefault();
     getCurrentWeather(location);
-    setSearchTerm(location);
     setLocation("");
   };
 
@@ -53,13 +50,15 @@ const Home = () => {
           <CurrentWeather details={weather.weather} location={weather.search} />
         )}
         {Object.keys(weather).length > 0 && (
+          <SunRiseSet details={weather.weather} />
+        )}
+        {Object.keys(weather).length > 0 && (
           <MainValues details={weather.weather} />
         )}
         {Object.keys(weather).length > 0 && (
-          <SunRiseSet details={weather.weather} />
+          <Forecast details={weather.forecast} />
         )}
         {Object.keys(weather).length > 0 && <Wind details={weather.weather} />}
-        {/* {Object.keys(weather.weather).length > 0 && <Forecast details={weather.weather} />} */}
       </div>
     </>
   );
