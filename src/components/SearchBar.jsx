@@ -12,9 +12,7 @@ const SearchBar = ({ setLocation, handleSearch, location, valid, loading }) => {
       >
         <ThemeSwitcher />
         <form
-          onSubmit={(e) => {
-            handleSearch(e);
-          }}
+          onSubmit={(e) => handleSearch(e)}
           className="flex grow gap-4 max-w-[430px]"
         >
           <input

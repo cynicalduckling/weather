@@ -21,10 +21,11 @@ const Home = () => {
   const [loading, setLoading] = useState(false);
 
   const getCurrentWeather = async (location) => {
-    if (location.length) {
+    try {
       setLoading(true);
       const coords = await getGeoCode(location);
-      if (coords.data.length) {
+      console.log("api call");
+      if (coords.data?.length) {
         localStorage.setItem("location", location);
         const weatherResponse = await currentWeatherCall(coords.data[0]);
         const forecast = await currentWeatherForecast(coords.data[0]);
@@ -39,10 +40,9 @@ const Home = () => {
         setValid(false);
       }
       setLoading(false);
-    } else {
-      localStorage.setItem("location", "");
+    } catch {
       setWeather({});
-      setValid(false);
+      setLoading(false);
     }
   };
 
@@ -60,7 +60,13 @@ const Home = () => {
 
   const handleSearch = (e) => {
     e.preventDefault();
-    getCurrentWeather(location);
+    if (location.length) {
+      getCurrentWeather(location);
+    } else {
+      localStorage.setItem("location", "");
+      setWeather({});
+      setValid(false);
+    }
     setLocation("");
   };
 
