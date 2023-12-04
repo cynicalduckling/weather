@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import SearchBar from "./SearchBar";
 import CurrentWeather from "./CurrentWeather";
 import {
@@ -12,7 +12,11 @@ import Wind from "./Wind";
 import Forecast from "./Forecast";
 
 const Home = () => {
-  const [location, setLocation] = useState("");
+  const [location, setLocation] = useState(
+    localStorage.getItem("location")?.length
+      ? localStorage.getItem("location")
+      : ""
+  );
   const [valid, setValid] = useState(true);
   const [loading, setLoading] = useState(false);
 
@@ -21,6 +25,7 @@ const Home = () => {
       setLoading(true);
       const coords = await getGeoCode(location);
       if (coords.data.length) {
+        localStorage.setItem("location", location);
         const weatherResponse = await currentWeatherCall(coords.data[0]);
         const forecast = await currentWeatherForecast(coords.data[0]);
         setWeather({
@@ -30,10 +35,13 @@ const Home = () => {
         });
         setValid(true);
       } else {
+        setWeather({});
         setValid(false);
       }
       setLoading(false);
     } else {
+      localStorage.setItem("location", "");
+      setWeather({});
       setValid(false);
     }
   };
@@ -56,6 +64,13 @@ const Home = () => {
     setLocation("");
   };
 
+  useEffect(() => {
+    if (location.length) {
+      getCurrentWeather(location);
+      setLocation("");
+    }
+  }, []);
+
   return (
     <>
       <SearchBar
@@ -66,7 +81,7 @@ const Home = () => {
         loading={loading}
       />
       {Object.keys(weather).length > 0 && (
-        <div className="flex flex-col lg:flex-row gap-8 flex-wrap items-center justify-center max-w-[1600px] mt-8">
+        <div className="flex flex-col lg:flex-row gap-8 flex-wrap items-center justify-center max-w-[1600px] mt-4">
           <CurrentWeather
             details={weather.weather}
             location={weather.search}

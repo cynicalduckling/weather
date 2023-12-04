@@ -12,7 +12,9 @@ const SearchBar = ({ setLocation, handleSearch, location, valid, loading }) => {
       >
         <ThemeSwitcher />
         <form
-          onSubmit={(e) => handleSearch(e)}
+          onSubmit={(e) => {
+            handleSearch(e);
+          }}
           className="flex grow gap-4 max-w-[430px]"
         >
           <input
@@ -27,11 +29,14 @@ const SearchBar = ({ setLocation, handleSearch, location, valid, loading }) => {
           <Button label="Search" />
         </form>
       </div>
-      {!valid && (
-        <div className="text-sm flex items-center">
-          <MdWarningAmber className="mr-2" /> please enter a valid location
-        </div>
-      )}
+
+      <div className="h-4 text-sm flex items-center">
+        {!valid && (
+          <>
+            <MdWarningAmber className="mr-2" /> please enter a valid location
+          </>
+        )}
+      </div>
     </>
   );
 };
