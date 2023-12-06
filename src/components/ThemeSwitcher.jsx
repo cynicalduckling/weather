@@ -23,11 +23,11 @@ const ThemeSwitcher = () => {
   };
 
   return (
-    <div className="" onClick={handleClick}>
+    <div className="cursor-pointer" onClick={handleClick}>
       {theme === "dark" ? (
-        <MdDarkMode className="h-10 w-10" />
+        <MdDarkMode className="h-10 w-10 hover:animate-pulse" />
       ) : (
-        <MdOutlineLightMode className="h-10 w-10" />
+        <MdOutlineLightMode className="h-10 w-10 hover:animate-pulse" />
       )}
     </div>
   );
